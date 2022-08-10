@@ -222,6 +222,9 @@ void IOManager::updateSymbols() {
   if (m_symbolsHeaderFile->open(QIODevice::ReadWrite | QIODevice::Truncate)) {
     m_symbolsHeaderFile->write(headerfile.join('\n').toUtf8());
     m_symbolsHeaderFile->close();
+    // Set file permissions so RIPES ran by other users may read `ripes_system.h`
+    const auto permissions = QFileDevice::ReadOther | QFileDevice::ReadOwner | QFileDevice::WriteOwner;
+    m_symbolsHeaderFile->setPermissions(permissions);
   }
 }
 

@@ -122,8 +122,9 @@ CCManager::CCRes CCManager::compile(const QStringList &files, QString outname,
                                     bool showProgressdiag) {
   CCRes res;
   if (outname.isEmpty()) {
+    const auto uuid = QUuid::createUuid();
     outname = QDir::tempPath() + QDir::separator() +
-              QCoreApplication::applicationName() + ".temp.out";
+              QCoreApplication::applicationName() + "." + uuid.toString(QUuid::Id128) + ".temp.out";
     QFile::remove(outname); // Remove any previously compiled file
   }
 

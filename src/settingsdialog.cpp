@@ -176,7 +176,7 @@ QWidget *SettingsDialog::createCompilerPage() {
       new QLabel("Providing a compatible RISC-V C/C++ compiler enables "
                  "editing, compilation "
                  "and execution of C-language programs within Ripes.\n\n"
-                 "A compiler may be autodetected if availabe in PATH.");
+                 "A compiler may be autodetected if available in PATH.");
   CCDesc->setWordWrap(true);
   CCLayout->addWidget(CCDesc);
 
